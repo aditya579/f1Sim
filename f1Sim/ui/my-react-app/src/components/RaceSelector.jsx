@@ -1,46 +1,40 @@
-import { useState } from 'react'
 import '../styles/RaceSelector.css'
 
 function RaceSelector({ years, selectedYear, onYearChange, races, onRaceSelect, selectedRace }) {
-  const [expandedYear, setExpandedYear] = useState(selectedYear)
-
-  const handleYearHover = (year) => {
-    setExpandedYear(year)
-    onYearChange(year)
-  }
-
-  const handleYearLeave = () => {
-    setExpandedYear(null)
-  }
-
   return (
     <div className="race-selector">
-      <h2>Select Race</h2>
-      <div className="year-dropdown">
-        <div className="years-container">
-          {years.map((year) => (
-            <div
-              key={year}
-              className={`year-item ${selectedYear === year ? 'selected' : ''}`}
-              onMouseEnter={() => handleYearHover(year)}
-              onMouseLeave={handleYearLeave}
-            >
-              <button className="year-button">{year}</button>
-              {expandedYear === year && (
-                <div className="races-submenu">
-                  {races.map((race) => (
-                    <div
-                      key={race}
-                      className={`race-item ${selectedRace === race ? 'active' : ''}`}
-                      onClick={() => onRaceSelect(race)}
-                    >
-                      {race}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+      <div className="race-selector-grid">
+        <div className="selector-panel year-panel">
+          <div className="panel-heading">SELECT YEAR</div>
+          <select
+            className="year-select"
+            value={selectedYear}
+            onChange={(event) => onYearChange(Number(event.target.value))}
+          >
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="selector-panel race-panel">
+          <div className="panel-heading">SELECT RACE</div>
+          <select
+            className="race-select"
+            value={selectedRace || ''}
+            onChange={(event) => onRaceSelect(event.target.value)}
+          >
+            <option value="" disabled>
+              Choose a race
+            </option>
+            {races.map((race) => (
+              <option key={race} value={race}>
+                {race}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       {selectedRace && (
