@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Track Image Viewer</title>
+  <style>
+    .image-container { margin: 20px; text-align: center; }
+    img { max-width: 500px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div class="image-container">
+  <button id="fetchBtn">Load Track Image</button>
+  <div style="margin-top: 20px;">
+    <img id="trackImage" style="display:none;" alt="Track Layout" />
+  </div>
+</div>
+
+<script>
+  document.getElementById('fetchBtn').addEventListener('click', () => {
+      const imageName = "track-layout-01.jpg"; // Replace with your dynamic image name
+      const imgElement = document.getElementById('trackImage');
+
+      // Approach A: Direct URL binding (Easiest if endpoint is public)
+      imgElement.src = `http://localhost:8080/getMapImage`;
+      imgElement.style.display = 'block';
+
+      /* // Approach B: Using Fetch (Use this if you need to pass Auth Headers)
+      fetch(`http://localhost:8080/getMapImage`, {
+          headers: { 'Authorization': 'Bearer YOUR_TOKEN_HERE' }
+      })
+      .then(response => {
+          if (!response.ok) throw new Error('Image not found');
+          return response.blob(); // Get the response as a Binary Blob
+      })
+      .then(blob => {
+          const objectURL = URL.createObjectURL(blob);
+          imgElement.src = objectURL;
+          imgElement.style.display = 'block';
+      })
+      .catch(err => console.error("Error fetching image:", err));
+      */
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - f-network
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_USER: aditya
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: F1
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - f-network
+    volumes:
+      - mysql-f-data:/var/lib/mysql  # Added the absolute destination path
+networks:
+  f-network:
+    driver: bridge
+volumes:
+  mysql-f-data:
