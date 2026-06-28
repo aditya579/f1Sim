@@ -1,0 +1,140 @@
+.ranking-table-container {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 1000px;
+}
+
+.ranking-table thead th {
+  position: sticky;
+  background-color: rgba(20, 20, 20, 0.95);
+  color: var(--f1-light);
+  z-index: 12;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.ranking-table thead tr:first-child th {
+  top: 0;
+}
+
+.ranking-table thead tr:last-child th {
+  top: 48px;
+}
+
+.ranking-table th {
+  padding: 14px 10px;
+  text-align: left;
+  color: var(--f1-red);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.98), rgba(10, 10, 10, 0.95));
+  backdrop-filter: blur(4px);
+}
+
+.ranking-table th[colspan="3"] {
+  text-align: center;
+}
+
+.ranking-table th:not([colspan]) {
+  vertical-align: bottom;
+}
+
+.ranking-table th span {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 24, 1, 0.16);
+}
+
+.ranking-table th:last-child,
+.ranking-table td.speed {
+  text-align: right;
+}
+
+.sector {
+  text-align: center;
+}
+
+.tyre-cell {
+  text-align: center;
+}
+
+.speed {
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.driver-row {
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.driver-row:hover {
+  background-color: rgba(0, 130, 250, 0.1);
+  border-left: 3px solid var(--accent-blue);
+}
+
+.driver-row:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+..driver-row td {
+  padding: 12px 10px;
+  color: var(--f1-light);
+  white-space: nowrap;
+}
+
+.position {
+  font-weight: 700;
+  color: var(--f1-red);
+  width: 40px;
+  text-align: center;
+}
+
+.driver-name {
+  font-weight: 600;
+  color: var(--accent-blue);
+}
+
+.team-name {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.points {
+  text-align: right;
+  color: var(--accent-green);
+  font-weight: 700;
+  min-width: 50px;
+}
+
+.ranking-table tbody tr:first-child .position {
+  background: linear-gradient(135deg, var(--f1-red) 0%, #ff4422 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ranking-table tbody tr:first-child .driver-name {
+  color: var(--f1-light);
+}
+
+@media (max-width: 768px) {
+  .ranking-table {
+    font-size: 0.85rem;
+  }
+
+  .ranking-table th,
+  .driver-row td {
+    padding: 8px 4px;
+  }
+}

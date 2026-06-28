@@ -1,0 +1,253 @@
+.race-display {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  min-height: 760px;
+}
+
+.map-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.map-section {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #15151E 100%);
+  min-height: 620px;
+}
+
+.playback-controls {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.data-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.track-conditions-panel,
+.ranking-section {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.track-conditions-panel h3,
+.ranking-section h3,
+.playback-controls h3 {
+  color: var(--f1-red);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.race-map {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.placeholder {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.loading-spinner {
+  text-align: center;
+  color: var(--accent-blue);
+  font-size: 1.2rem;
+}
+
+.control-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.playback-controls {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.playback-controls h3 {
+  color: var(--f1-red);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.controls-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.control-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--f1-red);
+  background-color: transparent;
+  color: var(--f1-red);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-button:hover {
+  background-color: rgba(255, 24, 1, 0.1);
+  transform: scale(1.1);
+}
+
+.control-button:active {
+  transform: scale(0.95);
+}
+
+.playback-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--f1-red) 0%, var(--accent-blue) 100%);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--f1-red);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 24, 1, 0.6);
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--f1-red);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(255, 24, 1, 0.6);
+}
+
+.time-display {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.ranking-section {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.ranking-section h3 {
+  color: var(--f1-red);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.track-conditions-table-container {
+  margin-bottom: 20px;
+}
+
+.track-conditions-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--f1-light);
+}
+
+.track-conditions-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.track-conditions-table td:first-child {
+  color: var(--accent-blue);
+  font-weight: 600;
+  width: 45%;
+}
+
+.track-conditions-table td:last-child {
+  text-align: right;
+  color: #ccc;
+}
+
+@media (max-width: 1200px) {
+  .race-display {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .map-container {
+    min-height: 520px;
+  }
+
+  .data-panel {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .race-display {
+    grid-template-columns: 1fr;
+  }
+
+  .control-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
